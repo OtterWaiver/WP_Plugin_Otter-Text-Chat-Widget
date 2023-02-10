@@ -1,6 +1,4 @@
 === Plugin Name ===
-Contributors: mav2287
-Donate link: https://ottertext.com
 Tags: chat, otter text
 Requires at least: 6.0.0
 Tested up to: 6.0.0

@@ -13,7 +13,6 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Otter Text - Chat Widget
- * Plugin URI:        https://ottertext.com
  * Description:       This plugin allows you to quickly and easily add the Otter Text widget to your website.
  * Version:           1.0.0
  * Author:            Otter Text
