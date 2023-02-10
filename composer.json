@@ -1,0 +1,41 @@
+{
+  "name": "ottertext/ottertext",
+  "type": "wordpress-plugin",
+  "description": "This plugin allows you to quickly and easily add the Otter Text widget to your website.",
+  "keywords": [
+    "WordPress",
+    "Plugins"
+  ],
+  "homepage": "https://ottertext.com",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Blain Web Design",
+      "homepage": "https://www.BlainWebDesign.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "wptrt/wpthemereview": "^0.2.1",
+    "php-parallel-lint/php-parallel-lint": "^1.2.0",
+    "wp-cli/i18n-command": "^2.2.5"
+  },
+  "scripts": {
+    "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "lint:wpcs-fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+    "make-pot": "wp i18n make-pot . languages/otter_text_chat_widget.pot"
+  },
+  "support": {
+    "issues": "https://github.com/Automattic/_s/issues",
+    "source": "https://github.com/Automattic/_s"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
