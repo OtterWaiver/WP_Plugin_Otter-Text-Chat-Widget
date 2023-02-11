@@ -36,7 +36,7 @@ Temporary Items
 /src/vendor
 src/vendor
 .pnp.js
-.composer.lock
+composer.lock
 
 # testing
 /coverage
