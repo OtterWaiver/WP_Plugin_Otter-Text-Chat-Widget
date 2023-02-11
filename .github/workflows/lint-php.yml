@@ -1,41 +1,26 @@
 name: PHP Code Linting
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
-      - master
       - main
-
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
 jobs:
   lint-php:
     name: Parallel lint
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        php:
-          - 5.6
-          - 7.0
-          - 7.1
-          - 7.2
-          - 7.3
-          - 7.4
-          - 8.0
-          - 8.1
-          - 8.2
-        composer-args: [ "" ]
-      fail-fast: false
-
     steps:
-      - name: Checkout the git repository
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: PHP setup
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
       - name: Cache Composer packages
         id: composer-cache
         uses: actions/cache@v2
@@ -44,33 +29,13 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
+
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest
+
       - name: Check for PHP errors
         run: composer lint:php
 
-  phpcs_check:
-    name: PHPCS check
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the git repository
-        uses: actions/checkout@v2
-      - name: PHP setup
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-      - name: Install dependencies
-        if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
       - name: Check coding standards using PHPCS
         run: composer lint:wpcs
