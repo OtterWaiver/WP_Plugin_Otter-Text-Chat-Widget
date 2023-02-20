@@ -33,10 +33,6 @@
     "make-pot": "wp i18n make-pot . languages/otter_text_chat_widget.pot",
     "phpstan": "phpstan analyse -c phpstan.neon"
   },
-  "support": {
-    "issues": "https://github.com/Automattic/_s/issues",
-    "source": "https://github.com/Automattic/_s"
-  },
   "config": {
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,
