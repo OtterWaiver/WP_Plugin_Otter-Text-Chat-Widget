@@ -74,10 +74,10 @@ class Otter_Text_Chat_Widget_Admin {
 			$chat_widget_id = isset( $options['chat_widget_id'] ) ? $options['chat_widget_id'] : '';
 			if ( empty( $chat_widget_id ) ) {
 				echo '<div class="notice notice-error"><p>';
-				echo esc_html( __( 'The Otter Text Chat Widget is not being displayed.', 'otter_text_chat_widget' ) );
-				$link_text        = __( 'Click here to set the chat widget ID.', 'otter_text_chat_widget' );
+				echo esc_html( __( 'The Otter Text Chat Widget is not being displayed. ', 'otter_text_chat_widget' ) );
+				$link_text        = __( 'Click here to set the Chat Widget ID.', 'otter_text_chat_widget' );
 				$options_page_url = menu_page_url( 'otter_text_settings', false );
-				echo '<a href="' . esc_html( $options_page_url ) . '">' . esc_html( $link_text ) . '</a>.';
+				echo '<a href="' . esc_html( $options_page_url ) . '">' . esc_html( $link_text ) . '</a>';
 				echo '</p></div>';
 			}
 		}
