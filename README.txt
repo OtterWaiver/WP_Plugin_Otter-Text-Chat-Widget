@@ -36,5 +36,8 @@ Yes, this will add it to all the pages on the site.
 
 == Changelog ==
 
+= TBD =
+* Fix grammar issue related to the notice that is shown when a user has not yet set a Chat Widget ID.
+
 = 1.0 =
 * First Release
