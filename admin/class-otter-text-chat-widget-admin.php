@@ -154,7 +154,7 @@ class Otter_Text_Chat_Widget_Admin {
 	 */
 	public function otter_text_chat_widget_id_validate( $input ) {
 		$new_input['chat_widget_id'] = trim( $input['chat_widget_id'] );
-		if ( ! preg_match( '/^^[a-zA-Z\d]+$/i', $new_input['chat_widget_id'] ) ) {
+		if ( ! preg_match( '/^[a-zA-Z\d]+$/i', $new_input['chat_widget_id'] ) ) {
 			$new_input['chat_widget_id'] = '';
 		}
 		return $new_input;
