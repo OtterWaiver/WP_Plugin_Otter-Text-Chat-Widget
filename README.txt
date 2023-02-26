@@ -1,8 +1,10 @@
-=== Plugin Name ===
+=== Otter Text - Chat Widget ===
+Contributors: ottertext
 Tags: chat, otter text
 Requires at least: 6.0.0
 Tested up to: 6.1.1
 Stable tag: 1.0.0
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,8 +33,6 @@ Yes, you must be an Otter Text customer user.
 = Will this add the chat widget to all the pages on my website? =
 
 Yes, this will add it to all the pages on the site.
-
-== Screenshots ==
 
 == Changelog ==
 
