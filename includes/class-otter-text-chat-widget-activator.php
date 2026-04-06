@@ -26,10 +26,10 @@ class Otter_Text_Chat_Widget_Activator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.0.0
+	 * @since    1.0.1
 	 */
 	public static function activate() {
-
+		set_transient( 'otter_text_chat_widget_activation_redirect', '1', 60 );
 	}
 
 }
