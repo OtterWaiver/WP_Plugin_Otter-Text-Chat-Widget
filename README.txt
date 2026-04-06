@@ -2,13 +2,13 @@
 Contributors: ottertext
 Tags: chat, otter text
 Requires at least: 6.0.0
-Tested up to: 6.1.1
-Stable tag: 1.0.0
+Tested up to: 6.7
+Stable tag: 1.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows you to quickly and easily add the Otter Text widget to your website.
+This plugin allows you to quickly and easily add the Otter Text chat widget to your website.
 
 == Description ==
 
@@ -21,8 +21,8 @@ Use of this plugin and the code that it will add to your website is also subject
 == Installation ==
 
 1. Upload the plugin using the plugin screen in the WordPress admin section or manually to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Set your Otter Text Chat Widget ID in the settings section.
+1. Activate the plugin through the 'Plugins' menu in WordPress. You will be taken to the Otter Text settings screen once (or use **Settings → Otter Text**, or the **Settings** link on the Plugins screen).
+1. Set your Otter Text Chat Widget ID and save.
 
 == Frequently Asked Questions ==
 
@@ -36,8 +36,9 @@ Yes, this will add it to all the pages on the site.
 
 == Changelog ==
 
-= TBD =
-* Fix grammar issue related to the notice that is shown when a user has not yet set a Chat Widget ID.
+= 1.0.1 - 2026-04-06 =
+* Redirect to Otter Text settings once after activation (so you can paste your widget ID right away).
+* Add a **Settings** link on the Plugins list for quick access to Otter Text options.
 
-= 1.0 =
-* First Release
+= 1.0.0 =
+* First release.

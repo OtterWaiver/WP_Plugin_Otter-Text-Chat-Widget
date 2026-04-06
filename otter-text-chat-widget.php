@@ -8,13 +8,13 @@
  * that starts the plugin.
  *
  * @link              https://ottertext.com
- * @since             1.0.0
+ * @since             1.0.1
  * @package           otter_text_chat_widget
  *
  * @wordpress-plugin
  * Plugin Name:       Otter Text - Chat Widget
  * Description:       This plugin allows you to quickly and easily add the Otter Text widget to your website.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Otter Text
  * Author URI:        https://ottertext.com
  * License:           GPL-2.0+
@@ -30,10 +30,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
+ * Use SemVer - https://semver.org
  */
-define( 'OTTER_TEXT_CHAT_WIDGET_VERSION', '1.0.0' );
+define( 'OTTER_TEXT_CHAT_WIDGET_VERSION', '1.0.1' );
+define( 'OTTER_TEXT_CHAT_WIDGET_FILE', __FILE__ );
 
 /**
  * The code that runs during plugin activation.
@@ -69,7 +69,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-otter-text-chat-widget-mai
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    1.0.1
  */
 function otter_text_chat_widget_run() {
 

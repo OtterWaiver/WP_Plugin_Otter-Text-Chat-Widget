@@ -64,6 +64,47 @@ class Otter_Text_Chat_Widget_Admin {
 	}
 
 	/**
+	 * After activation, send the user to the settings screen once.
+	 *
+	 * @since    1.0.1
+	 */
+	public function maybe_activation_redirect() {
+		if ( ! get_transient( 'otter_text_chat_widget_activation_redirect' ) ) {
+			return;
+		}
+		if ( ! current_user_can( $this->use_capability ) ) {
+			delete_transient( 'otter_text_chat_widget_activation_redirect' );
+			return;
+		}
+		if ( wp_doing_ajax() ) {
+			return;
+		}
+		if ( isset( $_GET['activate-multi'] ) ) {
+			delete_transient( 'otter_text_chat_widget_activation_redirect' );
+			return;
+		}
+		delete_transient( 'otter_text_chat_widget_activation_redirect' );
+		wp_safe_redirect( admin_url( 'options-general.php?page=otter_text_settings' ) );
+		exit;
+	}
+
+	/**
+	 * Add a Settings link on the Plugins screen.
+	 *
+	 * @since    1.0.1
+	 * @param array $links Existing action links.
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$settings_url = admin_url( 'options-general.php?page=otter_text_settings' );
+		array_unshift(
+			$links,
+			'<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'otter_text_chat_widget' ) . '</a>'
+		);
+		return $links;
+	}
+
+	/**
 	 * Check if the Chat Widget ID is set and if not display an alert
 	 *
 	 * @since    1.0.0
@@ -74,10 +115,10 @@ class Otter_Text_Chat_Widget_Admin {
 			$chat_widget_id = isset( $options['chat_widget_id'] ) ? $options['chat_widget_id'] : '';
 			if ( empty( $chat_widget_id ) ) {
 				echo '<div class="notice notice-error"><p>';
-				echo esc_html( __( 'The Otter Text Chat Widget is not being displayed. ', 'otter_text_chat_widget' ) );
-				$link_text        = __( 'Click here to set the Chat Widget ID.', 'otter_text_chat_widget' );
+				echo esc_html( __( 'The Otter Text Chat Widget is not being displayed.', 'otter_text_chat_widget' ) );
+				$link_text        = __( 'Click here to set the chat widget ID.', 'otter_text_chat_widget' );
 				$options_page_url = menu_page_url( 'otter_text_settings', false );
-				echo '<a href="' . esc_html( $options_page_url ) . '">' . esc_html( $link_text ) . '</a>';
+				echo '<a href="' . esc_html( $options_page_url ) . '">' . esc_html( $link_text ) . '</a>.';
 				echo '</p></div>';
 			}
 		}
@@ -154,7 +195,7 @@ class Otter_Text_Chat_Widget_Admin {
 	 */
 	public function otter_text_chat_widget_id_validate( $input ) {
 		$new_input['chat_widget_id'] = trim( $input['chat_widget_id'] );
-		if ( ! preg_match( '/^[a-zA-Z\d]+$/i', $new_input['chat_widget_id'] ) ) {
+		if ( ! preg_match( '/^^[a-zA-Z\d]+$/i', $new_input['chat_widget_id'] ) ) {
 			$new_input['chat_widget_id'] = '';
 		}
 		return $new_input;

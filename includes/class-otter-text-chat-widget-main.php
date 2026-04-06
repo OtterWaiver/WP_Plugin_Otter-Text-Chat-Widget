@@ -69,7 +69,7 @@ class Otter_Text_Chat_Widget_Main {
 		if ( defined( 'OTTER_TEXT_CHAT_WIDGET_VERSION' ) ) {
 			$this->version = OTTER_TEXT_CHAT_WIDGET_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'otter_text_chat_widget';
 
@@ -152,9 +152,11 @@ class Otter_Text_Chat_Widget_Main {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Otter_Text_Chat_Widget_Admin( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_activation_redirect', 1 );
 		$this->loader->add_action( 'admin_notices', $plugin_admin, 'admin_notice' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'otter_text_register_settings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+		$this->loader->add_filter( 'plugin_action_links_' . plugin_basename( OTTER_TEXT_CHAT_WIDGET_FILE ), $plugin_admin, 'plugin_action_links' );
 
 	}
 
