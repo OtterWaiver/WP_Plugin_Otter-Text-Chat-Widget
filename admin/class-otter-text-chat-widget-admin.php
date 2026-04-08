@@ -79,7 +79,7 @@ class Otter_Text_Chat_Widget_Admin {
 		if ( wp_doing_ajax() ) {
 			return;
 		}
-		if ( isset( $_GET['activate-multi'] ) ) {
+		if ( isset( $_GET['activate-multi'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check during activation redirect.
 			delete_transient( 'otter_text_chat_widget_activation_redirect' );
 			return;
 		}
